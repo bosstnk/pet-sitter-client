@@ -1,0 +1,253 @@
+<div>
+  <nav
+    class="px-[20px] py-[12px] flex flex-row justify-between items-center lg:px-[80px] lg:py-[20px]"
+  >
+    <app-logo class="lg:w-[131.61px] lg:h-[40px]" />
+    <div class="flex flex-row gap-[24px] lg:gap-[12px]">
+      <button
+        class="w-[24px] h-[24px] flex items-center justify-center lg:w-[48px] lg:h-[48px] lg:bg-gray-100 lg:rounded-full"
+      >
+        <app-icon-bell />
+      </button>
+      <button
+        class="w-[24px] h-[24px] flex items-center justify-center lg:w-[48px] lg:h-[48px] lg:bg-gray-100 lg:rounded-full"
+      >
+        <app-icon-chat />
+      </button>
+      <button class="lg:hidden">
+        <app-icon-menu />
+      </button>
+      <button class="hidden lg:block lg:w-[48px] lg:h-[48px] lg:mr-[12px]">Im</button>
+      <app-button variant="primary" class="hidden lg:block">Find A Pet Sitter</app-button>
+    </div>
+  </nav>
+  <main
+    class="flex min-h-screen flex-col items-center bg-surface max-w-[1440px] mx-auto overflow-hidden"
+  >
+    <div
+      class="flex flex-col items-center gap-[50px] lg:flex-row lg:gap-[21.5px] lg:pt-20 lg:pb-16"
+    >
+      <div class="shrink-0 text-center space-y-6 lg:order-2 lg:space-y-8">
+        <h1 class="text-[48px] leading-[56px] font-black lg:text-display">
+          Pet Sitter<span class="text-orange-500">,</span> <br />
+          Perfect<span class="text-blue-500">,</span> <br />
+          For Your Pet<span class="text-yellow-200">.</span>
+        </h1>
+        <p class="text-h4 text-gray-400 lg:text-h3">Find your perfect pet sitter with us.</p>
+      </div>
+
+      <div class="flex flex-row justify-center gap-[15px] lg:contents">
+        <div class="relative w-[226px] h-[255px] lg:order-1 lg:w-[428px] lg:h-[441px]">
+          <app-brand-paw-blob
+            class="absolute h-[96.63px] w-[93.63px] top-0 right-0 lg:w-[163px] lg:h-[169px] lg:right-[35px]"
+          />
+          <app-brand-quarter
+            class="absolute h-[67.18px] w-[67.5px] top-[49.5px] left-[38.49px] lg:w-[117.5px] lg:h-[117.5px] lg:top-[81.57px] lg:left-[59px]"
+          />
+          <div
+            class="absolute w-[145.33px] h-[144.65px] bottom-0 right-[11.16px] lg:w-[253px] lg:h-[253px] lg:right-[54px]"
+          >
+            <div class="absolute z-5 overflow-hidden rounded-l-full bottom-0">
+              <img
+                src="assets/images/three-cat.png"
+                alt="Three cats"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <app-brand-toggle-pill
+              class="absolute z-5 h-[25.16px] w-[45.38px] top-[-11px] left-[25px] lg:w-[79px] lg:h-[44px]"
+            />
+            <app-brand-donut class="absolute inset-0" />
+            <app-brand-triangle
+              class="absolute bottom-0 right-0 h-[75px] w-[82px] lg:w-[144px] lg:h-[135px]"
+            />
+          </div>
+        </div>
+        <div class="relative w-[247px] h-[255px] lg:order-3 lg:w-[428px] lg:h-[441px]">
+          <app-brand-star
+            color="#FF7037"
+            class="absolute h-[90.13px] w-[92.27px] rotate-90 top-0 left-[6.38px] lg:w-[160px] lg:h-[155.88px] lg:left-[11.05px]"
+          />
+          <div
+            class="absolute h-[146.29px] w-[146px] top-[48px] left-[65px] lg:w-[253px] lg:h-[253px] lg:top-[80px] lg:left-[95px]"
+          >
+            <div class="absolute z-5 overflow-hidden rounded-full bottom-0">
+              <img src="assets/images/dog.png" alt="Dog" class="h-full w-full object-contain" />
+            </div>
+            <app-brand-blob color="#FFCA62" class="absolute inset-0 right-0 lg:right-[-40px]" />
+          </div>
+          <app-brand-circle
+            color="#F6F6F9"
+            class="absolute h-[38.74px] w-[38.67px] bottom-[59.56px] left-[35.2px] lg:w-[67px] lg:h-[67px] lg:bottom-[103px] lg:left-[61px]"
+          />
+          <app-brand-arch
+            color="#1CCD83"
+            class="absolute h-[66.21px] w-[132.16px] bottom-0 left-[28.28px] lg:w-[229px] lg:h-[114.5px] lg:left-[49px]"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="max-w-[1064px] w-full rounded-2xl mx-4 shadow-[4px_4px_24px_0_rgba(0,0,0,0.04)] lg:mx-auto">
+      <div class="w-full flex flex-col gap-2 bg-gray-100 p-4 rounded-t-2xl lg:flex-row lg:gap-3 lg:p-6">
+        <p class="text-body-1">Pet Type:</p>
+        <div class="space-x-4 lg:space-x-6">
+          <app-checkbox>Dog</app-checkbox>
+          <app-checkbox>Cat</app-checkbox>
+          <app-checkbox>Bird</app-checkbox>
+          <app-checkbox>Rabbit</app-checkbox>
+        </div>
+      </div>
+      <div class="p-[16px] flex flex-col gap-6 lg:p-[24px] rounded-b-2xl lg:flex-row ">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
+          <p class="text-body-1">Rating:</p>
+          <app-rating-select></app-rating-select>
+        </div>
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-center">
+          <p class="text-body-1">Experience:</p>
+          <app-dropdown />
+        </div>
+        <app-button variant="primary" class="grow">Search</app-button>
+      </div>
+    </div>
+
+    <div class="py-10 px-4 flex flex-col items-center gap-10 lg:gap-[120px] lg:py-[80px]">
+      <h3 class="text-h3 text-black text-center lg:text-h2">
+        "Your Pets, Our Priority: Perfect Care, Anytime, Anywhere."
+      </h3>
+
+      <div class="max-w-[1064px] flex flex-col items-center gap-10 lg:flex-row lg:gap-[105px]">
+        <div class="px-4 space-y-6 max-w-[504px] lg:p-0">
+          <div class="flex flex-row gap-3">
+            <app-brand-star color="#76D0FC" class="w-[24px] h-[24px] shrink-0 rotate-90" />
+            <div class="space-y-3">
+              <h4 class="text-h4 text-black lg:text-h3">Boarding</h4>
+              <p class="text-body-2 text-gray-500 lg:text-body-1">
+                Your pets stay overnight in your sitter’s home. They’ll be treated like part of the
+                family in a comfortable environment.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-row gap-3">
+            <app-brand-star color="#FA8AC0" class="w-[24px] h-[24px] shrink-0 rotate-90" />
+            <div class="space-y-3">
+              <h4 class="text-h4 text-black lg:text-h3">House Sitting</h4>
+              <p class="text-body-2 text-gray-500 lg:text-body-1">
+                Your sitter takes care of your pets and your home. Your pets will get all the
+                attention they need without leaving home.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-row gap-3">
+            <app-brand-star color="#1CCD83" class="w-[24px] h-[24px] shrink-0 rotate-90" />
+            <div class="space-y-3">
+              <h4 class="text-h4 text-black lg:text-h3">Dog Walking</h4>
+              <p class="text-body-2 text-gray-500 lg:text-body-1">
+                Your dog gets a walk around your neighborhood. Perfect for busy days and dogs with
+                extra energy to burn.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-row gap-3">
+            <app-brand-star color="#FFCA62" class="w-[24px] h-[24px] shrink-0 rotate-90" />
+            <div class="space-y-3">
+              <h4 class="text-h4 text-black lg:text-h3">Drop-In Visits</h4>
+              <p class="text-body-2 text-gray-500 lg:text-body-1">
+                Your sitter drops by your home to play with your pets, offer food, and give potty
+                breaks or clean the litter box.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-[343px] h-[453px] rounded-r-[227.5px] rounded-tl-[227.5px] overflow-hidden shrink-0 lg:w-[455px] lg:h-[601px]"
+        >
+          <img
+            src="assets/images/black-white-cat.jpg"
+            alt="Black white cat"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+      <div class="max-w-[1280px] pt-10 grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-4 lg:pt-0">
+        <div class="flex flex-col gap-[46px] items-center">
+          <div class="w-[200px] h-[200px] rounded-full overflow-hidden">
+            <img
+              src="assets/images/girl-cat.jpg"
+              alt="Girl and cat"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="space-y-3 text-center px-6">
+            <h3 class="text-h3 text-black">
+              <span class="text-green-500">Connect</span> With Sitters
+            </h3>
+            <p class="text-body-1 text-gray-500">
+              Find a verified and reviewed sitter who’ll keep your pets company and give time.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-[46px] items-center">
+          <div class="w-[200px] h-[200px] rounded-full overflow-hidden">
+            <img
+              src="assets/images/dog-cat.jpg"
+              alt="Dog and cat"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="space-y-3 text-center px-6">
+            <h3 class="text-h3 text-black">
+              <span class="text-blue-500">Better</span> For Your Pets
+            </h3>
+            <p class="text-body-1 text-gray-500">
+              Pets stay happy at home with a sitter who gives them loving care and companionship.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-[46px] items-center">
+          <div class="w-[200px] h-[200px] rounded-full overflow-hidden">
+            <img
+              src="assets/images/girl-dog.jpg"
+              alt="Girl and dog"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="space-y-3 text-center px-6">
+            <h3 class="text-h3 text-black"><span class="text-orange-500">Calling</span>All Pets</h3>
+            <p class="text-body-1 text-gray-500">
+              Stay for free with adorable animals in unique homes around the world.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div
+    class="relative flex items-center justify-center w-full h-[469px] max-w-[1280px] bg-[#FFF5EC] mx-auto overflow-hidden lg:rounded-2xl lg:my-20"
+  >
+    <div class="w-[344px] space-y-10 z-5 lg:w-[457px]">
+      <h2 class="text-h2 text-black text-center lg:text-h1">Perfect Pet Sitter For Your Pet</h2>
+      <div class="w-full flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-center">
+        <app-button variant="secondary">Become A Pet Sitter</app-button>
+        <app-button variant="primary">Find A Pet Sitter</app-button>
+      </div>
+    </div>
+    <app-brand-circle
+      color="#FFCA62"
+      class="absolute h-[133.81px] w-[133.76px] top-[-76px] right-[-24px] lg:w-[229px] lg:h-[229px] lg:top-[-66px] lg:right-[-53px]"
+    />
+    <app-brand-star
+      class="absolute h-[108.68px] w-[111.57px] top-[22px] right-[62px] lg:w-[191px] lg:h-[186px] lg:top-[103.38px] lg:right-[94.37px]"
+    />
+    <app-brand-arch
+      class="absolute h-[124] w-[248px] bottom-0 left-[-40px] lg:w-[337px] lg:h-[168px] lg:left-0"
+    />
+  </div>
+  <footer class="flex flex-col gap-4 items-center justify-center bg-black h-[274px]">
+    <app-logo class="w-[210.58px] h-[64px] text-white" />
+    <p class="text-body-1 text-white lg:text-h3">Find your perfect pet sitter with us.</p>
+  </footer>
+</div>
