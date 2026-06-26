@@ -1,0 +1,272 @@
+<div class="min-h-screen bg-surface py-16 pb-32">
+  <div class="mx-auto flex max-w-[1100px] flex-col gap-20 px-12">
+
+    <!-- Page header -->
+    <header class="flex flex-col gap-2 border-b border-divider pb-10">
+      <span class="text-kicker">Sitter Design System</span>
+      <h1 class="text-h2">Design Tokens</h1>
+      <p class="text-body-2 text-gray-300">Colors · Typography · Buttons</p>
+    </header>
+
+    <!-- ── 01 Colors ───────────────────────────── -->
+    <section class="flex flex-col gap-10">
+      <div class="flex items-center gap-4">
+        <span class="text-kicker">01</span>
+        <h2 class="text-h3">Colors</h2>
+        <div class="h-px flex-1 bg-gray-100"></div>
+      </div>
+
+      <!-- Orange -->
+      <div class="flex flex-col gap-3">
+        <p class="text-body-3 font-bold uppercase tracking-wider text-gray-500">Orange · Primary</p>
+        <div class="flex flex-wrap gap-3">
+          @for (s of orange; track s.hex) {
+            <div class="flex flex-col items-center gap-2">
+              <div class="h-20 w-20 rounded-card border border-divider" [style.background]="s.hex"></div>
+              <span class="text-xs font-bold text-gray-500">{{ s.name }}</span>
+              <span class="text-[10px] text-gray-300">{{ s.hex }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Gray -->
+      <div class="flex flex-col gap-3">
+        <p class="text-body-3 font-bold uppercase tracking-wider text-gray-500">Gray · Neutral</p>
+        <div class="flex flex-wrap gap-3">
+          @for (s of gray; track s.hex) {
+            <div class="flex flex-col items-center gap-2">
+              <div class="h-20 w-20 rounded-card border border-divider" [style.background]="s.hex"></div>
+              <span class="text-xs font-bold text-gray-500">{{ s.name }}</span>
+              <span class="text-[10px] text-gray-300">{{ s.hex }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Accent + Utility -->
+      <div class="flex flex-wrap gap-12">
+        <div class="flex flex-col gap-3">
+          <p class="text-body-3 font-bold uppercase tracking-wider text-gray-500">Accent · Status &amp; Pet types</p>
+          <div class="flex flex-wrap gap-3">
+            @for (s of accent; track s.name) {
+              <div class="flex flex-col items-center gap-2">
+                <div class="h-16 w-16 rounded-input border border-divider" [style.background]="s.hex"></div>
+                <span class="text-[10px] font-bold text-gray-500">{{ s.name }}</span>
+                <span class="text-[9px] text-gray-300">{{ s.hex }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <p class="text-body-3 font-bold uppercase tracking-wider text-gray-500">Utility</p>
+          <div class="flex flex-wrap gap-3">
+            @for (s of utility; track s.name) {
+              <div class="flex flex-col items-center gap-2">
+                <div class="h-16 w-16 rounded-input border border-divider" [style.background]="s.hex"></div>
+                <span class="text-[10px] font-bold text-gray-500">{{ s.name }}</span>
+                <span class="text-[9px] text-gray-300">{{ s.hex }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02 Typography ───────────────────────── -->
+    <section class="flex flex-col gap-10">
+      <div class="flex items-center gap-4">
+        <span class="text-kicker">02</span>
+        <h2 class="text-h3">Typography</h2>
+        <div class="h-px flex-1 bg-gray-100"></div>
+      </div>
+
+      <div class="overflow-hidden rounded-card border border-divider bg-white shadow-[4px_4px_24px_rgba(0,0,0,0.04)]">
+        @for (t of typography; track t.token) {
+          <div class="grid grid-cols-[120px_1fr_160px] items-center gap-4 border-b border-divider px-6 py-4 last:border-b-0">
+            <span class="font-mono text-xs font-bold text-orange-500">{{ t.token }}</span>
+            <span [class]="t.cls" class="truncate">{{ t.sample }}</span>
+            <span class="text-body-3 text-gray-500">{{ t.meta }}</span>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ── 03 Buttons ──────────────────────────── -->
+    <section class="flex flex-col gap-10">
+      <div class="flex items-center gap-4">
+        <span class="text-kicker">03</span>
+        <h2 class="text-h3">Buttons</h2>
+        <div class="h-px flex-1 bg-gray-100"></div>
+      </div>
+
+      <!-- Variants × sizes -->
+      <div class="overflow-hidden rounded-card border border-divider bg-white shadow-[4px_4px_24px_rgba(0,0,0,0.04)]">
+        <div class="grid grid-cols-[140px_1fr_1fr_1fr] items-center gap-6 border-b border-divider bg-gray-100/40 px-7 py-3">
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Variant</span>
+          <span class="text-center text-xs font-bold uppercase tracking-wider text-gray-300">sm · 40</span>
+          <span class="text-center text-xs font-bold uppercase tracking-wider text-gray-300">md · 48</span>
+          <span class="text-center text-xs font-bold uppercase tracking-wider text-gray-300">lg · 56</span>
+        </div>
+
+        <!-- Primary -->
+        <div class="grid grid-cols-[140px_1fr_1fr_1fr] items-center gap-6 border-b border-divider px-7 py-6">
+          <div>
+            <span class="text-body-3 font-bold text-gray-500">Primary</span>
+            <p class="text-[11px] text-gray-300">Orange fill · white text</p>
+          </div>
+          <div class="flex justify-center"><app-button variant="primary" size="sm">Book Sitter</app-button></div>
+          <div class="flex justify-center"><app-button variant="primary" size="md">Book Sitter</app-button></div>
+          <div class="flex justify-center"><app-button variant="primary" size="lg">Book Sitter</app-button></div>
+        </div>
+
+        <!-- Secondary -->
+        <div class="grid grid-cols-[140px_1fr_1fr_1fr] items-center gap-6 border-b border-divider px-7 py-6">
+          <div>
+            <span class="text-body-3 font-bold text-gray-500">Secondary</span>
+            <p class="text-[11px] text-gray-300">Orange tint · orange text</p>
+          </div>
+          <div class="flex justify-center"><app-button variant="secondary" size="sm">Cancel</app-button></div>
+          <div class="flex justify-center"><app-button variant="secondary" size="md">Cancel</app-button></div>
+          <div class="flex justify-center"><app-button variant="secondary" size="lg">Cancel</app-button></div>
+        </div>
+
+        <!-- Ghost -->
+        <div class="grid grid-cols-[140px_1fr_1fr_1fr] items-center gap-6 border-b border-divider px-7 py-6">
+          <div>
+            <span class="text-body-3 font-bold text-gray-500">Ghost</span>
+            <p class="text-[11px] text-gray-300">Transparent · orange text</p>
+          </div>
+          <div class="flex justify-center"><app-button variant="ghost" size="sm">Learn more</app-button></div>
+          <div class="flex justify-center"><app-button variant="ghost" size="md">Learn more</app-button></div>
+          <div class="flex justify-center"><app-button variant="ghost" size="lg">Learn more</app-button></div>
+        </div>
+
+        <!-- Social -->
+        <div class="grid grid-cols-[140px_1fr_1fr_1fr] items-center gap-6 px-7 py-6">
+          <div>
+            <span class="text-body-3 font-bold text-gray-500">Social</span>
+            <p class="text-[11px] text-gray-300">Gray fill · dark text</p>
+          </div>
+          <div class="flex justify-center"><app-button variant="social" size="sm">Google</app-button></div>
+          <div class="flex justify-center"><app-button variant="social" size="md">Google</app-button></div>
+          <div class="flex justify-center"><app-button variant="social" size="lg">Google</app-button></div>
+        </div>
+      </div>
+
+      <!-- States + radius -->
+      <div class="flex flex-wrap gap-6">
+        <div class="flex min-w-[360px] flex-1 flex-col gap-5 rounded-card border border-divider bg-white p-7 shadow-[4px_4px_24px_rgba(0,0,0,0.04)]">
+          <span class="text-body-3 font-bold uppercase tracking-wider text-gray-300">States</span>
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex flex-col items-center gap-2">
+              <app-button variant="primary">Default</app-button>
+              <span class="text-[11px] text-gray-300">Default</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <button class="inline-flex h-12 items-center rounded-pill bg-orange-400 px-6 font-bold text-white">Hover</button>
+              <span class="text-[11px] text-gray-300">#FF986F</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <button class="inline-flex h-12 items-center rounded-pill bg-orange-600 px-6 font-bold text-white">Press</button>
+              <span class="text-[11px] text-gray-300">#E44A0C</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <app-button variant="primary" [disabled]="true">Disabled</app-button>
+              <span class="text-[11px] text-gray-300">Disabled</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex min-w-[280px] flex-1 flex-col gap-5 rounded-card border border-divider bg-white p-7 shadow-[4px_4px_24px_rgba(0,0,0,0.04)]">
+          <span class="text-body-3 font-bold uppercase tracking-wider text-gray-300">Corner Radius</span>
+          <div class="flex flex-col gap-3">
+            @for (r of radii; track r.value) {
+              <div class="flex items-center gap-4">
+                <div class="h-10 w-10 shrink-0 border-2 border-orange-500 bg-orange-100" [class]="r.cls"></div>
+                <div>
+                  <span class="text-body-3 font-bold text-gray-500">{{ r.value }}</span>
+                  <span class="ml-2 text-xs text-gray-300">{{ r.use }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 Brand Elements ───────────────────── -->
+    <section class="flex flex-col gap-10">
+      <div class="flex items-center gap-4">
+        <span class="text-kicker">04</span>
+        <h2 class="text-h3">Brand Elements</h2>
+        <div class="h-px flex-1 bg-gray-100"></div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3">
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-arch class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">arch</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-star class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">star</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-circle class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">circle</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-quarter class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">quarter</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-paw-blob class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">paw-blob</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-triangle class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">triangle</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-donut class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">donut</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-blob class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">blob</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-40 items-center justify-center bg-surface p-6"><app-brand-toggle-pill class="h-full w-full max-h-28 max-w-28" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">toggle-pill</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 Icons ────────────────────────────── -->
+    <section class="flex flex-col gap-10">
+      <div class="flex items-center gap-4">
+        <span class="text-kicker">05</span>
+        <h2 class="text-h3">Icons</h2>
+        <div class="h-px flex-1 bg-gray-100"></div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3">
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-32 items-center justify-center bg-surface text-gray-300"><app-icon-bell class="h-8 w-8" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">bell</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-32 items-center justify-center bg-surface text-gray-300"><app-icon-chat class="h-8 w-8" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">chat</span></div>
+        </div>
+        <div class="flex flex-col overflow-hidden rounded-card border border-divider bg-white">
+          <div class="flex h-32 items-center justify-center bg-surface text-gray-500"><app-icon-menu class="h-8 w-8" /></div>
+          <div class="px-4 py-3"><span class="text-body-3 font-bold text-gray-500">menu</span></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
