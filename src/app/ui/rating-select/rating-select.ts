@@ -10,7 +10,7 @@ import { IconStar } from '../icon';
       <button
         type="button"
         [class]="chipClasses(rating)"
-        (click)="select(rating)"
+        (click)="toggle(rating)"
       >
         <span class="text-body-2">{{ rating }}</span>
         @for (star of stars(rating); track $index) {
@@ -23,10 +23,16 @@ import { IconStar } from '../icon';
 export class RatingSelect {
   readonly ratings = input<number[]>([5, 4, 3, 2, 1]);
 
-  protected readonly selected = signal<number | null>(null);
+  protected readonly selected = signal<ReadonlySet<number>>(new Set());
 
-  protected select(value: number): void {
-    this.selected.set(value);
+  protected toggle(value: number): void {
+    const next = new Set(this.selected());
+    if (next.has(value)) {
+      next.delete(value);
+    } else {   
+      next.add(value);
+    }
+    this.selected.set(next);
   }
 
   protected stars(rating: number): unknown[] {
@@ -37,10 +43,9 @@ export class RatingSelect {
     const base =
       'flex flex-row items-center gap-1 px-2 py-1 ' +
       'rounded-input border cursor-pointer transition-colors';
-    const state =
-      this.selected() === rating
-        ? 'border-orange-500 text-orange-500'
-        : 'border-gray-100 text-gray-300';
+    const state = this.selected().has(rating)
+      ? 'border-orange-500 text-orange-500'
+      : 'border-gray-200 text-gray-400';
     return `${base} ${state}`;
   }
 }
