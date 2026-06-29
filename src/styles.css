@@ -1,3 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+/* ── Sitter Design System tokens ───────────────────────────── */
+@theme {
+  --font-sans: 'Satoshi', sans-serif;
+
+  /* Orange — primary */
+  --color-orange-100: #fff1ec;
+  --color-orange-200: #ffd5c2;
+  --color-orange-300: #ffb899;
+  --color-orange-400: #ff986f;
+  --color-orange-500: #ff7037;
+  --color-orange-600: #e44a0c;
+
+  /* Gray — neutral (overrides Tailwind defaults intentionally) */
+  --color-gray-100: #F6F6F9;
+  --color-gray-200: #dcdfed;
+  --color-gray-300: #aeb1c4;
+  --color-gray-400: #7b7e8f;
+  --color-gray-500: #5b5d6f;
+  --color-gray-600: #3a3b46;
+
+  /* Accent — status & pet types */
+  --color-green-100: #e7fdf4;
+  --color-green-500: #1ccd83;
+  --color-blue-100: #ecfbff;
+  --color-blue-500: #76d0fc;
+  --color-pink-100: #fff0f1;
+  --color-pink-500: #fa8ac0;
+  --color-yellow-200: #ffca62;
+
+  /* Utility */
+  --color-error: #ea1010;
+  --color-divider: #e4e6ed;
+  --color-surface: #ffffff;
+
+  /* Radius */
+  --radius-input: 8px;
+  --radius-card: 16px;
+  --radius-pill: 99px;
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+body {
+  background: var(--color-surface);
+  font-family: var(--font-sans);
+  color: #000;
+}
+
+/* ── Typography helpers (utilities → support variants like lg:) ─ */
+@utility text-h1 {
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: 700;
+}
+@utility text-h2 {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+}
+@utility text-h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+@utility text-h4 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+@utility text-body-1 {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+}
+@utility text-body-2 {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 500;
+}
+@utility text-body-3 {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+}
+@utility text-display {
+  font-size: 88px;
+  line-height: 96px;
+  font-weight: 900;
+}
+@utility text-kicker {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-orange-500);
+}
