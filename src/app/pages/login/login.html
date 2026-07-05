@@ -21,31 +21,59 @@
   </div>
 
   <!-- form -->
-  <div class="relative w-full max-w-[440px] flex flex-col gap-8">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="relative w-full max-w-[440px] flex flex-col gap-8"
+  >
     <label class="flex flex-col gap-1">
       <span class="text-body-2 text-black">Email</span>
       <input
         type="email"
+        formControlName="email"
         placeholder="Enter your email"
-        class="w-full h-12 pl-3 pr-4 text-body-2 outline-none rounded-lg border border-gray-200  placeholder:text-gray-400 focus:border-orange-500"
+        class="w-full h-12 pl-3 pr-4 text-body-2 outline-none rounded-lg border placeholder:text-gray-400 focus:border-orange-500"
+        [class.border-gray-200]="!(showError(form.controls.email))"
+        [class.border-error]="showError(form.controls.email)"
       />
+      @if (showError(form.controls.email)) {
+        <span class="text-body-3 text-error">
+          @if (form.controls.email.hasError('required')) {
+            Please enter your email
+          } @else {
+            Please enter a valid email
+          }
+        </span>
+      }
     </label>
 
     <label class="flex flex-col gap-1">
       <span class="text-body-2 text-black">Password</span>
       <input
         type="password"
+        formControlName="password"
         placeholder="Enter your password"
-        class="w-full h-12 pl-3 pr-4 text-body-2 outline-none rounded-lg border border-gray-200  placeholder:text-gray-400 focus:border-orange-500"
+        class="w-full h-12 pl-3 pr-4 text-body-2 outline-none rounded-lg border placeholder:text-gray-400 focus:border-orange-500"
+        [class.border-gray-200]="!(showError(form.controls.password))"
+        [class.border-error]="showError(form.controls.password)"
       />
+      @if (showError(form.controls.password)) {
+        <span class="text-body-3 text-error">Please enter your password</span>
+      }
     </label>
 
-    <app-button variant="primary" [fullWidth]="true">Login</app-button>
+    @if (serverError()) {
+      <p class="text-body-3 text-error text-center">{{ serverError() }}</p>
+    }
+
+    <app-button type="submit" variant="primary" [fullWidth]="true" [disabled]="loading()">
+      {{ loading() ? 'Logging in...' : 'Login' }}
+    </app-button>
 
     <!-- supporting inputs -->
     <div class="flex flex-row items-center justify-between">
       <app-checkbox>Remember?</app-checkbox>
-      <app-button variant="ghost" size="sm">Forget Password?</app-button>
+      <app-button type="button" variant="ghost" size="sm">Forget Password?</app-button>
     </div>
 
     <!-- divider -->
@@ -57,12 +85,12 @@
 
     <!-- social -->
     <div class="flex gap-3">
-      <app-button variant="social" [fullWidth]="true">
+      <app-button type="button" variant="social" [fullWidth]="true">
         <app-icon-facebook />
         Facebook
       </app-button>
 
-      <app-button variant="social" [fullWidth]="true">
+      <app-button type="button" variant="social" [fullWidth]="true">
         <app-icon-google />
         Google
       </app-button>
@@ -73,5 +101,5 @@
       <span class="text-body-1">Don’t have any account?</span>
       <a routerLink="/register" class="text-body-1 text-orange-500 hover:text-orange-400 active:text-orange-600">Register</a>
     </div>
-  </div>
+  </form>
 </div>
