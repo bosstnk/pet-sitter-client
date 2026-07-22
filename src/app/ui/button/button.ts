@@ -28,7 +28,7 @@ const VARIANTS: Record<ButtonVariant, string> = {
     '[class.w-full]': 'fullWidth()',
   },
   template: `
-    <button [class]="classes()" [disabled]="disabled()">
+    <button [class]="classes()" [disabled]="disabled()" [type]="type()">
       <ng-content />
     </button>
   `,
@@ -38,6 +38,7 @@ export class Button {
   readonly size = input<ButtonSize>('md');
   readonly disabled = input(false);
   readonly fullWidth = input(false);
+  readonly type = input<'button' | 'submit'>('button')
 
   protected readonly classes = computed(
     () => `${BASE} ${SIZES[this.size()]} ${VARIANTS[this.variant()]}`,

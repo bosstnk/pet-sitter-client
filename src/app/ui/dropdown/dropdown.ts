@@ -8,10 +8,10 @@ import { IconArrowDown } from '../icon';
   template: `
     <button
       type="button"
-      class="flex flex-row items-center gap-2 w-full h-12 pl-3 pr-4 py-3 bg-white border border-gray-100 rounded-input"
+      class="flex flex-row items-center gap-2 w-full h-12 pl-3 pr-4 py-3 bg-white border border-gray-200 rounded-input cursor-pointer"
       (click)="toggle()"
     >
-      <span class="flex-1 text-left text-base font-normal leading-normal text-gray-300">
+      <span class="flex-1 text-left text-base font-normal leading-normal text-gray-400">
         {{ display() }}
       </span>
       <app-icon-arrow-down class="transition-transform" [class.rotate-180]="open()" />
@@ -25,7 +25,7 @@ import { IconArrowDown } from '../icon';
         @for (opt of options(); track opt) {
           <button
             type="button"
-            class="block w-full text-left px-3 py-2 text-base text-gray-300 hover:bg-gray-100"
+            class="block w-full text-left px-3 py-2 text-base text-gray-400 hover:bg-gray-100 cursor-pointer"
             (click)="select(opt)"
           >
             {{ opt }}

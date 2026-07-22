@@ -1,0 +1,105 @@
+<div
+  class="relative mx-auto min-h-screen flex flex-col gap-10 overflow-hidden bg-white px-4 py-15 lg:items-center lg:justify-center lg:gap-[56px]"
+>
+  <!-- decorative corner shape -->
+  <app-brand-paw-blob
+    color="#FFCA62"
+    class="absolute h-[145.05px] w-[139.53px] rotate-285 top-[-63px] right-[-25px] lg:w-[244.16px] lg:h-[253.11px] lg:top-[49px] lg:right-[-43px]"
+  />
+  <app-brand-quarter
+    color="#75D0FC"
+    class="hidden lg:block lg:absolute lg:h-[117.5px] lg:w-[117.5px] lg:rotate-45 lg:bottom-[220px] lg:left-[32px]"
+  />
+  <app-brand-star
+    class="hidden lg:block lg:absolute lg:h-[310px] lg:w-[318px] lg:rotate-88 lg:bottom-[-97px] lg:left-[-70px]"
+  />
+
+  <!-- headline -->
+  <div class="relative w-full max-w-[440px] flex flex-col items-center gap-2 text-center">
+    <h1 class="text-h2 lg:text-h1">Welcome back!</h1>
+    <p class="text-body-1 text-gray-400 lg:text-h3">Find your perfect pet sitter with us</p>
+  </div>
+
+  <!-- form -->
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="relative w-full max-w-[440px] flex flex-col gap-8"
+  >
+    <label class="flex flex-col gap-1">
+      <span class="text-body-2 text-black">Email</span>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Enter your email"
+        class="w-full h-12 pl-3 pr-4 text-body-2 outline-none rounded-lg border placeholder:text-gray-400 focus:border-orange-500"
+        [class.border-gray-200]="!(showError(form.controls.email))"
+        [class.border-error]="showError(form.controls.email)"
+      />
+      @if (showError(form.controls.email)) {
+        <span class="text-body-3 text-error">
+          @if (form.controls.email.hasError('required')) {
+            Please enter your email
+          } @else {
+            Please enter a valid email
+          }
+        </span>
+      }
+    </label>
+
+    <label class="flex flex-col gap-1">
+      <span class="text-body-2 text-black">Password</span>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter your password"
+        class="w-full h-12 pl-3 pr-4 text-body-2 outline-none rounded-lg border placeholder:text-gray-400 focus:border-orange-500"
+        [class.border-gray-200]="!(showError(form.controls.password))"
+        [class.border-error]="showError(form.controls.password)"
+      />
+      @if (showError(form.controls.password)) {
+        <span class="text-body-3 text-error">Please enter your password</span>
+      }
+    </label>
+
+    @if (serverError()) {
+      <p class="text-body-3 text-error text-center">{{ serverError() }}</p>
+    }
+
+    <app-button type="submit" variant="primary" [fullWidth]="true" [disabled]="loading()">
+      {{ loading() ? 'Logging in...' : 'Login' }}
+    </app-button>
+
+    <!-- supporting inputs -->
+    <div class="flex flex-row items-center justify-between">
+      <app-checkbox>Remember?</app-checkbox>
+      <app-button type="button" variant="ghost" size="sm">Forget Password?</app-button>
+    </div>
+
+    <!-- divider -->
+    <div class="flex items-center gap-3">
+      <span class="h-px flex-1 bg-gray-200"></span>
+      <span class="text-body-1 text-gray-400">Or continue with</span>
+      <span class="h-px flex-1 bg-gray-200"></span>
+    </div>
+
+    <!-- social -->
+    <div class="flex gap-3">
+      <app-button type="button" variant="social" [fullWidth]="true">
+        <app-icon-facebook />
+        Facebook
+      </app-button>
+
+      <app-button type="button" variant="social" [fullWidth]="true">
+        <app-icon-google />
+        Google
+      </app-button>
+    </div>
+
+    <!-- bottom -->
+    <div class="flex items-center justify-center gap-2">
+      <span class="text-body-1">Don’t have any account?</span>
+      <a routerLink="/register" class="text-body-1 text-orange-500 hover:text-orange-400 active:text-orange-600">Register</a>
+    </div>
+  </form>
+</div>
